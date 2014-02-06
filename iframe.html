@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html>
+	<head>
+
+	</head>
+	<body>
+		<div>
+			<input id="url-input" data-bind="value: siteUrl"></input>
+		</div>
+		<div>
+			<div style="float: left; width:20%; height:100%; display: inline-block;">
+				<iframe data-bind="attr: { src: siteUrl}" style="width:100%; height:100%;"></iframe>
+			</div>			
+			<div style="float: left; width:80%; height:100%; display: inline-block;">
+				<iframe data-bind="attr: { src: siteUrl}" style="width:100%; height:100%;"></iframe>
+			</div>
+		
+		</div>
+		
+		<script src="knockout-3.0.0.js"></script>
+		<script src="iframe.js"></script>
+		<script>
+			var vm = new iFrameJs();
+			ko.applyBindings(vm);
+		</script>
+	</body>
+
+</html>
