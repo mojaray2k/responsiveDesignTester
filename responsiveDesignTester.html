@@ -16,7 +16,13 @@
 				<!-- /ko-->
 			</header>
 		</div>
+
 		<div id="content">
+			<div class="splash-screen" data-bind="visible: siteUrl() === ''">
+				<span>Welcome&nbsp;to&nbsp;the Responsive&nbsp;Tester</span>
+				<input class="url-input" autofocus="autofocus" data-bind="value: siteUrl" placeholder="http://..." type="url"></input><br>
+				Add&nbsp;your&nbsp;URL above,&nbsp;bro.
+			</div>
 			<div class="iframe-container" data-bind="style: { width: leftSize()+'px'}" style="width:10px;">
 				<div class="size-marker" data-bind="text:leftSize()+'px', visible: siteUrl() !== ''"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
