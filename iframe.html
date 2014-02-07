@@ -1,22 +1,28 @@
-<!DOCTYPE>
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <html>
 	<head>
+		<meta charset="utf-8">
+		<title>RAIN Monitor</title>
 
+		<link rel="stylesheet" href="assets/css/style.css"/>
 	</head>
 	<body>
-		<div>
+		<header>
 			<input id="url-input" data-bind="value: siteUrl"></input>
-		</div>
-		<div>
-			<div style="float: left; width:20%; height:100%; display: inline-block;">
-				<iframe data-bind="attr: { src: siteUrl}" style="width:100%; height:100%;"></iframe>
-			</div>			
-			<div style="float: left; width:80%; height:100%; display: inline-block;">
-				<iframe data-bind="attr: { src: siteUrl}" style="width:100%; height:100%;"></iframe>
+		</header>
+		<div class="container">
+			<div class="left-column">
+				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
-		
+
+			<div class="gripper"></div>
+
+			<div class="right-column">
+				<iframe data-bind="attr: { src: siteUrl}"></iframe>
+			</div>
 		</div>
-		
+
 		<script src="knockout-3.0.0.js"></script>
 		<script src="iframe.js"></script>
 		<script>
