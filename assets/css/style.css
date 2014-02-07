@@ -1435,8 +1435,7 @@ header {
   top: 10px;
   right: 10px;
   height: 30px;
-  width: auto;
-  overflow-x: hidden; }
+  width: auto; }
   .button-row h2,
   .button-row button {
     float: left; }
