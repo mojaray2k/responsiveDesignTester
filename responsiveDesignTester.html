@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Responsive Design Tester</title>
+		<link rel="stylesheet" type="text/css" href="normalize.css"></link>
+		<link rel="stylesheet" type="text/css" href="style.css"></link>
+	</head>
+	<body>
+		<div id="banner">
+			<div class="title">Responsive Design Tester</div>
+			<input class="url-input" data-bind="value: siteUrl" placeholder="Put the site you want to test in here" type="url"></input>
+			<div class="button-row" data-bind="visible: siteUrl() !== ''">
+				<span>Choose from one of the common sizes<span>
+				<!-- ko foreach: currentSizes-->
+					<span class="size-button" data-bind="text: $data+'px', css: { 'selected-button': $parent.leftSize() === $data}, click: $parent.sizeButtonClicked.bind($parent)"></span>
+				<!-- /ko-->
+			</div>
+		</div>
+		<div id="content">
+			<div class="iframe-container" data-bind="style: { width: leftSize()+'px'}" style="width:10px;">
+				<div class="size-marker" data-bind="text:leftSize()+'px', visible: siteUrl() !== ''"></div>
+				<iframe data-bind="attr: { src: siteUrl}"></iframe>
+			</div>		
+			<div class="splitter" data-bind="visible: siteUrl() !== '', event: {mousemove: splitterMouseMove, mousedown: splitterMouseDown, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}"></div>
+			<div class="iframe-container"  data-bind="style: { width: rightSize()+'px'}" style="width:10px;">
+				<div class="size-marker" data-bind="text:rightSize()+'px', visible: siteUrl() !== ''"></div>
+				<iframe data-bind="attr: { src: siteUrl}"></iframe>
+			</div>
+		
+		</div>
+		
+		<script src="knockout-3.0.0.js"></script>
+		<script src="viewmodel.js"></script>
+		<script>
+			var vm = new ViewModel();
+			ko.applyBindings(vm);
+		</script>
+	</body>
+
+</html>
