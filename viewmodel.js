@@ -6,20 +6,29 @@ var ViewModel = (function(){
 	var bigIsLeft = true;
 
 	function ViewModel(){
-		this.textInUrlBox = ko.observable("");
+		this.yoDawging = ko.observable(false);
+	
+		this.textInUrlBox = ko.observable(getUrlParameter());
 		this.siteUrl = ko.computed(function(){
 			if(this.textInUrlBox() === ""){
 				return "";
 			}
+			if(this.textInUrlBox().indexOf("responsiveDesignTester.html")!== -1){
+				this.yoDawging(true);
+				this.textInUrlBox("");
+				return "";
+			}
+			this.yoDawging(false);
 			var firstFourLetters = this.textInUrlBox().substr(0,4);
 			if(firstFourLetters === "http"){
 				return this.textInUrlBox();
 			}
 			return "http://"+this.textInUrlBox();
 		}, this);
+		this.textInUrlBox.subscribe(setUrlParameter.bind(this));
 		this.currentSizes = ko.observableArray([]);
 		this.smallSize = ko.observable();
-		this.bigSize = ko.observable();
+		this.bigSize = ko.observable();	
 
 		this.splitterIsDragging = false;
 		this.splitterPreviousX = undefined;
@@ -73,6 +82,18 @@ var ViewModel = (function(){
 		var browserWidth = window.innerWidth;
 		this.smallSize(value);
 		this.bigSize(browserWidth - value - splitterWidth);
+	}
+	
+	function setUrlParameter(){
+		if(this.siteUrl() === ""){
+			return;
+		}
+		window.location.search ="site="+this.siteUrl();
+	}
+	
+	function getUrlParameter(){
+		var parameter = window.location.search;
+		return parameter.replace("?site=", "");
 	}
 
 	ViewModel.prototype.sizeButtonClicked = function(size){
