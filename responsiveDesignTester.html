@@ -8,7 +8,7 @@
 	<body>
 		<header id="banner">
 			<h1>Responsive Tester:</h1>
-			<input class="url-input" data-bind="value: siteUrl" placeholder="http://..." type="url"></input>
+			<input class="url-input" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input>
 			<div class="button-row" data-bind="visible: siteUrl() !== ''">
 				<!-- <h2>Choose from one of the common sizes<h2> -->
 				<!-- ko foreach: currentSizes-->
@@ -20,7 +20,7 @@
 		<div id="content">
 			<div class="splash-screen" data-bind="visible: siteUrl() === ''">
 				<span>Welcome&nbsp;to&nbsp;the Responsive&nbsp;Tester</span>
-				<input class="url-input" autofocus="autofocus" data-bind="value: siteUrl" placeholder="http://..." type="url"></input><br>
+				<input class="url-input" autofocus="autofocus" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input><br>
 				Add&nbsp;your&nbsp;URL above,&nbsp;bro.
 			</div>
 			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}" style="width:10px;">

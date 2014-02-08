@@ -1,12 +1,22 @@
 var ViewModel = (function(){
 
-	var commonSizes = [320, 360, 480, 540, 720, 768, 800, 854 1080];
+	var commonSizes = [320, 360, 480, 540, 720, 768, 800, 854, 1080];
 	var splitterWidth = 5;
 	
 	var bigIsLeft = true;
 
 	function ViewModel(){
-		this.siteUrl = ko.observable("");
+		this.textInUrlBox = ko.observable("");
+		this.siteUrl = ko.computed(function(){
+			if(this.textInUrlBox() === ""){
+				return "";
+			}
+			var firstFourLetters = this.textInUrlBox().substr(0,4);
+			if(firstFourLetters === "http"){
+				return this.textInUrlBox();
+			}
+			return "http://"+this.textInUrlBox();
+		}, this);
 		this.currentSizes = ko.observableArray([]);
 		this.smallSize = ko.observable();
 		this.bigSize = ko.observable();
