@@ -8,7 +8,10 @@
 	<body>
 		<header id="banner">
 			<h1>Responsive Tester:</h1>
-			<input class="url-input" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input>
+			<div class="input-wrapper">
+				<input class="url-input" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input>
+				<a href="" class="clear-search ico-close"></a>
+			</div>
 			<div class="button-row" data-bind="visible: siteUrl() !== ''">
 				<!-- <h2>Choose from one of the common sizes<h2> -->
 				<!-- ko foreach: currentSizes-->
@@ -25,14 +28,15 @@
 				Add&nbsp;your&nbsp;URL above,&nbsp;bro.
 			</div>
 			<div class="splitter-move-mask" data-bind="visible: siteUrl() !== '' && splitterIsDragging(), event: {mousemove: splitterMouseMove, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}"></div>
-			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}" style="width:10px;">
+
+			<div class="iframe-container transition" data-bind="style: { width: bigSize()+'px'}" style="width:10px;">
 				<div class="size-marker" data-bind="text:bigSize()+'px', visible: siteUrl() !== ''"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
-			<div class="splitter" data-bind="visible: siteUrl() !== '', event: { mousedown: splitterMouseDown}, style: { left: bigSize()+'px'}, css: { active: splitterIsDragging}"></div>
+			<div class="splitter transition" data-bind="visible: siteUrl() !== '', event: { mousedown: splitterMouseDown}, style: { left: bigSize()+'px'}, css: { active: splitterIsDragging}"></div>
 
-			<div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}" style="width:10px;">
+			<div class="iframe-container transition"  data-bind="style: { width: smallSize()+'px'}" style="width:10px;">
 				<div class="size-marker" data-bind="text:smallSize()+'px', visible: siteUrl() !== ''"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>

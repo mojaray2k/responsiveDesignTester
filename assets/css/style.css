@@ -362,14 +362,12 @@ body {
   src: url("../fonts/SourceSansPro-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Regular-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Regular-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Regular-webfont.svg#SourceSansProRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 @font-face {
   font-family: 'SourceSansProSemibold';
   src: url("../fonts/SourceSansPro-Semibold-webfont.eot");
   src: url("../fonts/SourceSansPro-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Semibold-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Semibold-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Semibold-webfont.svg#SourceSansProSemibold") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 html {
   font-family: 'SourceSansProRegular', Verdana, Helvetica, Arial, sans-serif;
   font-weight: 400; }
@@ -425,7 +423,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -webkit-transform: rotate(360deg); } }
-
 @-moz-keyframes spin {
   from {
     -moz-transform: rotate(0deg); }
@@ -435,7 +432,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -moz-transform: rotate(360deg); } }
-
 @-ms-keyframes spin {
   from {
     -ms-transform: rotate(0deg); }
@@ -445,7 +441,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -ms-transform: rotate(360deg); } }
-
 @-o-keyframes spin {
   from {
     -o-transform: rotate(0deg); }
@@ -455,7 +450,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -o-transform: rotate(360deg); } }
-
 @keyframes spin {
   from {
     transform: rotate(0deg); }
@@ -465,14 +459,12 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     transform: rotate(360deg); } }
-
 @font-face {
   font-family: 'ringtail-icons-2.0';
   src: url("../icons/ringtail-icons-2.0.eot");
   src: url("../icons/ringtail-icons-2.0.eot?#iefix") format("embedded-opentype"), url("../icons/ringtail-icons-2.0.woff") format("woff"), url("../icons/ringtail-icons-2.0.ttf") format("truetype"), url("../icons/ringtail-icons-2.0.svg#ringtail-icons-2.0") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
   font-family: 'ringtail-icons-2.0';
@@ -1284,9 +1276,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
     background: #909090;
     border-top: 1px solid #333333;
     border-bottom: 1px solid #aaaaaa;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+    box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    -webkit-box-shadow: 0 0 0 transparent; }
   .button:focus {
     outline: 0; }
   .button:disabled, .button[disabled=disabled] {
@@ -1296,9 +1288,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: #aaaaaa;
       border-top: 1px solid #c3c3c3;
       border-bottom: 1px solid #848484;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
   .button.dark-button {
     background: #4a4a4c;
     color: #aaaaaa;
@@ -1315,9 +1307,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: #1d1d1d;
       border-top: 1px solid #0b0b0b;
       border-bottom: 1px solid #575759;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
     .button.dark-button:disabled, .button.dark-button[disabled=disabled] {
       opacity: 0.4; }
       .button.dark-button:disabled:hover, .button.dark-button:disabled:active, .button.dark-button[disabled=disabled]:hover, .button.dark-button[disabled=disabled]:active {
@@ -1325,9 +1317,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
         background: #4a4a4c;
         border-top: 1px solid #636366;
         border-bottom: 1px solid #242425;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+        box-shadow: 0 0 0 transparent;
+        -moz-box-shadow: 0 0 0 transparent;
+        -webkit-box-shadow: 0 0 0 transparent; }
   .button.light-button {
     background: #fbfbfb;
     color: #111111;
@@ -1344,16 +1336,16 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: silver;
       border-top: 1px solid #aeaeae;
       border-bottom: 1px solid #fbfbfb;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
     .button.light-button.selected-button {
       background: #00a3cc;
       border-top: 1px solid #003d4d;
       border-bottom: 1px solid #00b8e6;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent;
       color: #fff; }
     .button.light-button:disabled, .button.light-button[disabled=disabled] {
       opacity: 0.4; }
@@ -1362,9 +1354,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
         background: #fbfbfb;
         border-top: 1px solid #fff;
         border-bottom: 1px solid #aeaeae;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+        box-shadow: 0 0 0 transparent;
+        -moz-box-shadow: 0 0 0 transparent;
+        -webkit-box-shadow: 0 0 0 transparent; }
 
 html {
   font-size: 62.5%;
@@ -1424,7 +1416,7 @@ header {
     font-size: 16px;
     font-size: 1.6rem;
     letter-spacing: 1px; }
-    @media (max-width: 1100px) {
+    @media (max-width: 1200px) {
       header h1 {
         display: none; } }
   header input {
@@ -1437,6 +1429,37 @@ header {
     header input:focus {
       border: 1px solid #00a3cc;
       outline: none; }
+
+.input-wrapper {
+  position: relative;
+  float: left;
+  height: 30px;
+  width: auto; }
+
+.clear-search {
+  position: absolute;
+  top: 0;
+  right: -30px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #d4d4d4;
+  color: #aaaaaa;
+  text-align: center; }
+  .clear-search:hover {
+    color: #fff;
+    background: #ed1c24; }
+  .clear-search:before {
+    font-size: 30px;
+    font-size: 3rem;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px; }
 
 .button-row {
   position: absolute;
@@ -1460,13 +1483,15 @@ header {
   bottom: 0;
   left: 0; }
 
+.transition {
+  -webkit-transition: all linear 400ms;
+  transition: all linear 400ms; }
+
 .iframe-container {
   position: absolute;
   top: 0;
   bottom: 0;
-  height: 100%;
-  -webkit-transition: all linear 400ms;
-  transition: all linear 400ms; }
+  height: 100%; }
   .iframe-container:first-child {
     left: 0; }
   .iframe-container:last-child {
@@ -1491,9 +1516,7 @@ header {
   position: absolute;
   z-index: 90;
   background: #bbbbbb;
-  cursor: col-resize;
-  -webkit-transition: all linear 400ms;
-  transition: all linear 400ms; }
+  cursor: col-resize; }
   .splitter:after {
     content: '';
     display: inline-block;
@@ -1562,3 +1585,5 @@ header {
   background: #aaaaaa;
   margin: 10px 0 30px;
   padding: 0; }
+
+/*# sourceMappingURL=style.css.map */

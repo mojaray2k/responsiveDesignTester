@@ -61,7 +61,7 @@ header {
 		letter-spacing: 1px;
 		@extend %source-sans-semibold;
 
-		@media (max-width: 1100px) {
+		@media (max-width: 1200px) {
 			display: none;
 		}
 	}
@@ -79,6 +79,44 @@ header {
 			border: 1px solid $dark-cyan;
 			outline: none;
 		}
+	}
+}
+
+.input-wrapper {
+	position: relative;
+	float: left;
+	height: 30px;
+	width: auto;
+}
+
+.clear-search {
+	position: absolute;
+	top: 0;
+	right: -30px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: darken($light-grey, 10%);
+	// @include border-radius-all(20px);
+
+	color: $mid-grey;
+	text-align: center;
+
+	&:hover {
+		color: #fff;
+		background: $red;
+	}
+
+	&:before {
+		@include font-size(3);
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		text-align: center;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
 	}
 }
 
@@ -108,13 +146,16 @@ header {
 	left: 0;
 }
 
+.transition {
+	-webkit-transition: all linear 400ms;
+	transition: all linear 400ms;
+}
+
 .iframe-container {
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	height: 100%;
-	-webkit-transition: all linear 400ms;
-	transition: all linear 400ms;
 
 	&:first-child { left: 0; }
 
@@ -145,8 +186,6 @@ header {
 	z-index: 90;
 	background: darken($light-grey, 20%);
 	cursor: col-resize;
-	-webkit-transition: all linear 400ms;
-	transition: all linear 400ms;
 
 	&:after {
 		content: '';
@@ -212,12 +251,12 @@ header {
 }
 
 .splitter-move-mask {
-	height: 100%; 
-	width: 100%; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	z-index: 100000; 
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100000;
 	cursor: col-resize;
 }
 

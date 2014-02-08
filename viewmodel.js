@@ -1,13 +1,13 @@
 var ViewModel = (function(){
 
-	var commonSizes = [320, 360, 480, 540, 720, 768, 800, 854, 1080];
-	var splitterWidth = 5;	
+	var commonSizes = [240, 320, 360, 480, 540, 720, 768, 800, 1080];
+	var splitterWidth = 5;
 	var bigIsLeft = true;
 	var mouseDebouncingLength = 5;
 
 	function ViewModel(){
 		this.yoDawging = ko.observable(false);
-	
+
 		this.textInUrlBox = ko.observable(getUrlParameter());
 		this.siteUrl = ko.computed(function(){
 			if(this.textInUrlBox() === ""){
@@ -28,10 +28,10 @@ var ViewModel = (function(){
 		this.textInUrlBox.subscribe(setUrlParameter.bind(this));
 		this.currentSizes = ko.observableArray([]);
 		this.smallSize = ko.observable();
-		this.bigSize = ko.observable();	
+		this.bigSize = ko.observable();
 
 
-		this.splitterIsDragging = ko.observable(false);				
+		this.splitterIsDragging = ko.observable(false);
 		this.splitterPreviousX = undefined;
 		this.splitterMoveTimeout = undefined;
 
@@ -85,14 +85,14 @@ var ViewModel = (function(){
 		this.smallSize(value);
 		this.bigSize(browserWidth - value - splitterWidth);
 	}
-	
+
 	function setUrlParameter(){
 		if(this.siteUrl() === ""){
 			return;
 		}
 		window.location.search ="site="+this.siteUrl();
 	}
-	
+
 	function getUrlParameter(){
 		var parameter = window.location.search;
 		return parameter.replace("?site=", "");
@@ -126,7 +126,7 @@ var ViewModel = (function(){
 		viewModel.splitterIsDragging(false);
 		event.preventDefault();
 	}
-	
+
 	function onSplitterMoveTimeoutComplete(event){
 		var changeInX = event.clientX - this.splitterPreviousX;
 		if(bigIsLeft){
@@ -136,7 +136,7 @@ var ViewModel = (function(){
 		else{
 			this.smallSize(this.smallSize() + changeInX);
 			this.bigSize(this.bigSize() - changeInX);
-		}		
+		}
 		this.splitterPreviousX = event.clientX;
 		event.preventDefault();
 	}
