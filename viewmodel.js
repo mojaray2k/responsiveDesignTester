@@ -1,37 +1,39 @@
 var ViewModel = (function(){
 
-	var commonSizes = [240, 320, 360, 480, 540, 720, 768, 1080];
+	var commonSizes = [320, 360, 480, 540, 720, 768, 800, 854 1080];
 	var splitterWidth = 5;
+	
+	var bigIsLeft = true;
 
 	function ViewModel(){
 		this.siteUrl = ko.observable("");
 		this.currentSizes = ko.observableArray([]);
-		this.leftSize = ko.observable();
-		this.rightSize = ko.observable();
+		this.smallSize = ko.observable();
+		this.bigSize = ko.observable();
 
 		this.splitterIsDragging = false;
 		this.splitterPreviousX = undefined;
 
-		updateLeftAndRightSizes.bind(this)();
+		updateSizes.bind(this)();
 		updateCurrentSizes.bind(this)();
 
 		window.onresize = handleResize.bind(this);
 		adjustContentHeight();
 	}
 
-	function updateLeftAndRightSizes(){
-		var initialized = this.leftSize() !== undefined || this.rightSize() !== undefined;
+	function updateSizes(){
+		var initialized = this.smallSize() !== undefined || this.bigSize() !== undefined;
 		var browserWidth = window.innerWidth;
 		if(!initialized){
-			this.leftSize(320);
-			this.rightSize((browserWidth - 320) - splitterWidth);
+			this.smallSize(320);
+			this.bigSize((browserWidth - 320) - splitterWidth);
 			return;
 		}
-		var oldWidth = this.leftSize() + this.rightSize() + splitterWidth;
-		var leftRatio = this.leftSize()/oldWidth;
-		var rightRatio = (this.rightSize()+splitterWidth)/oldWidth;
-		this.leftSize(leftRatio * browserWidth);
-		this.rightSize(rightRatio * browserWidth);
+		var oldWidth = this.smallSize() + this.bigSize() + splitterWidth;
+		var smallRatio = this.smallSize()/oldWidth;
+		var bigRatio = (this.bigSize()+splitterWidth)/oldWidth;
+		this.smallSize(smallRatio * browserWidth);
+		this.bigSize(bigRatio * browserWidth);
 	}
 
 	function updateCurrentSizes(){
@@ -46,7 +48,7 @@ var ViewModel = (function(){
 	}
 
 	function handleResize(){
-		updateLeftAndRightSizes.bind(this)();
+		updateSizes.bind(this)();
 		updateCurrentSizes.bind(this)();
 		adjustContentHeight();
 	}
@@ -59,8 +61,8 @@ var ViewModel = (function(){
 
 	function setSizeToSpecificValue(value){
 		var browserWidth = window.innerWidth;
-		this.leftSize(value);
-		this.rightSize(browserWidth - value - splitterWidth);
+		this.smallSize(value);
+		this.bigSize(browserWidth - value - splitterWidth);
 	}
 
 	ViewModel.prototype.sizeButtonClicked = function(size){
@@ -80,8 +82,14 @@ var ViewModel = (function(){
 			return;
 		}
 		var changeInX = event.clientX - this.splitterPreviousX;
-		this.leftSize(this.leftSize() + changeInX);
-		this.rightSize(this.rightSize() - changeInX);
+		if(bigIsLeft){
+			this.smallSize(this.smallSize() - changeInX);
+			this.bigSize(this.bigSize() + changeInX);
+		}
+		else{
+			this.smallSize(this.smallSize() + changeInX);
+			this.bigSize(this.bigSize() - changeInX);
+		}		
 		this.splitterPreviousX = event.clientX;
 		event.preventDefault();
 	};

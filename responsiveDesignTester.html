@@ -12,7 +12,7 @@
 			<div class="button-row" data-bind="visible: siteUrl() !== ''">
 				<!-- <h2>Choose from one of the common sizes<h2> -->
 				<!-- ko foreach: currentSizes-->
-					<button class="button light-button" data-bind="text: $data+'px', css: { 'selected-button': $parent.leftSize() === $data}, click: $parent.sizeButtonClicked.bind($parent)"></button>
+					<button class="button light-button" data-bind="text: $data+'px', css: { 'selected-button': $parent.smallSize() === $data}, click: $parent.sizeButtonClicked.bind($parent)"></button>
 				<!-- /ko-->
 			</header>
 		</div>
@@ -23,15 +23,15 @@
 				<input class="url-input" autofocus="autofocus" data-bind="value: siteUrl" placeholder="http://..." type="url"></input><br>
 				Add&nbsp;your&nbsp;URL above,&nbsp;bro.
 			</div>
-			<div class="iframe-container" data-bind="style: { width: leftSize()+'px'}" style="width:10px;">
-				<div class="size-marker" data-bind="text:leftSize()+'px', visible: siteUrl() !== ''"></div>
+			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}" style="width:10px;">
+				<div class="size-marker" data-bind="text:bigSize()+'px', visible: siteUrl() !== ''"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
-			<div class="splitter" data-bind="visible: siteUrl() !== '', event: {mousemove: splitterMouseMove, mousedown: splitterMouseDown, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}, style: { left: leftSize()+'px'}"></div>
+			<div class="splitter" data-bind="visible: siteUrl() !== '', event: {mousemove: splitterMouseMove, mousedown: splitterMouseDown, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}, style: { left: bigSize()+'px'}"></div>
 
-			<div class="iframe-container"  data-bind="style: { width: rightSize()+'px'}" style="width:10px;">
-				<div class="size-marker" data-bind="text:rightSize()+'px', visible: siteUrl() !== ''"></div>
+			<div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}" style="width:10px;">
+				<div class="size-marker" data-bind="text:smallSize()+'px', visible: siteUrl() !== ''"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
