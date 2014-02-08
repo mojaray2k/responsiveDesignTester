@@ -24,12 +24,13 @@
 				<input class="url-input" autofocus="autofocus" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input><br>
 				Add&nbsp;your&nbsp;URL above,&nbsp;bro.
 			</div>
+			<div class="splitter-move-mask" data-bind="visible: siteUrl() !== '' && splitterIsDragging(), event: {mousemove: splitterMouseMove, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}"></div>
 			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}" style="width:10px;">
 				<div class="size-marker" data-bind="text:bigSize()+'px', visible: siteUrl() !== ''"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
-			<div class="splitter" data-bind="visible: siteUrl() !== '', event: {mousemove: splitterMouseMove, mousedown: splitterMouseDown, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}, style: { left: bigSize()+'px'}"></div>
+			<div class="splitter" data-bind="visible: siteUrl() !== '', event: { mousedown: splitterMouseDown}, style: { left: bigSize()+'px'}, css: { active: splitterIsDragging}"></div>
 
 			<div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}" style="width:10px;">
 				<div class="size-marker" data-bind="text:smallSize()+'px', visible: siteUrl() !== ''"></div>

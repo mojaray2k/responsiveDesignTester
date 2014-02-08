@@ -162,7 +162,8 @@ header {
 		transition: all linear 400ms;
 	}
 
-	&:hover {
+	&:hover,
+	&.active {
 		background: $cyan;
 		&:after { background: $dark-cyan; }
 	}
@@ -208,6 +209,16 @@ header {
 			width: 95%;
 		}
   	}
+}
+
+.splitter-move-mask {
+	height: 100%; 
+	width: 100%; 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	z-index: 100000; 
+	cursor: col-resize;
 }
 
 /* EXTRAS */

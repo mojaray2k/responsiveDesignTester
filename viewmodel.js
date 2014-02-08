@@ -1,9 +1,9 @@
 var ViewModel = (function(){
 
 	var commonSizes = [320, 360, 480, 540, 720, 768, 800, 854, 1080];
-	var splitterWidth = 5;
-	
+	var splitterWidth = 5;	
 	var bigIsLeft = true;
+	var mouseDebouncingLength = 5;
 
 	function ViewModel(){
 		this.yoDawging = ko.observable(false);
@@ -30,8 +30,10 @@ var ViewModel = (function(){
 		this.smallSize = ko.observable();
 		this.bigSize = ko.observable();	
 
-		this.splitterIsDragging = false;
+
+		this.splitterIsDragging = ko.observable(false);				
 		this.splitterPreviousX = undefined;
+		this.splitterMoveTimeout = undefined;
 
 		updateSizes.bind(this)();
 		updateCurrentSizes.bind(this)();
@@ -101,17 +103,31 @@ var ViewModel = (function(){
 	};
 
 	ViewModel.prototype.splitterMouseDown = function(viewModel, event){
-		viewModel.splitterIsDragging = true;
+		viewModel.splitterIsDragging(true);
 		this.splitterPreviousX = event.clientX;
 		//prevents selecting
 		event.preventDefault();
 	}
 
 	ViewModel.prototype.splitterMouseMove = function(viewModel, event){
-		if(!viewModel.splitterIsDragging){
-			event.preventDefault();
-			return;
+		if(this.splitterMoveTimeout !== undefined){
+			window.clearTimeout(this.splitterMoveTimeout);
 		}
+		var self = this;
+		this.splitterMoveTimeout = window.setTimeout(function(){ onSplitterMoveTimeoutComplete.bind(self)(event);}, mouseDebouncingLength);
+	};
+
+	ViewModel.prototype.splitterMouseUp = function(viewModel, event){
+		viewModel.splitterIsDragging(false);
+		event.preventDefault();
+	}
+
+	ViewModel.prototype.splitterMouseLeave = function(viewModel, event){
+		viewModel.splitterIsDragging(false);
+		event.preventDefault();
+	}
+	
+	function onSplitterMoveTimeoutComplete(event){
 		var changeInX = event.clientX - this.splitterPreviousX;
 		if(bigIsLeft){
 			this.smallSize(this.smallSize() - changeInX);
@@ -122,16 +138,6 @@ var ViewModel = (function(){
 			this.bigSize(this.bigSize() - changeInX);
 		}		
 		this.splitterPreviousX = event.clientX;
-		event.preventDefault();
-	};
-
-	ViewModel.prototype.splitterMouseUp = function(viewModel, event){
-		viewModel.splitterIsDragging = false;
-		event.preventDefault();
-	}
-
-	ViewModel.prototype.splitterMouseLeave = function(viewModel, event){
-		viewModel.splitterIsDragging = false;
 		event.preventDefault();
 	}
 
