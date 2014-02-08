@@ -18,13 +18,9 @@
 		</div>
 
 		<div id="content">
-			<div class="splash-screen" data-bind="visible: siteUrl() === '' && !yoDawging()">
-				<span>Welcome&nbsp;to&nbsp;the Responsive&nbsp;Tester</span>
-				<input class="url-input" autofocus="autofocus" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input><br>
-				Add&nbsp;your&nbsp;URL above,&nbsp;bro.
-			</div>
-			<div class="splash-screen" data-bind="visible: yoDawging">
-				<span>Yo&nbsp;Dawg&nbsp;I&nbsp;heard&nbsp;You&nbsp;like&nbsp;responsive&nbsp;design</span>
+			<div class="splash-screen" data-bind="visible: siteUrl() === ''">
+				<span data-bind="visible: !yoDawging()">Welcome&nbsp;to&nbsp;the Responsive&nbsp;Tester</span>
+				<span data-bind="visible: yoDawging">Yo&nbsp;Dawg&nbsp;I&nbsp;heard&nbsp;You&nbsp;like&nbsp;responsive&nbsp;design</span>
 				<input class="url-input" autofocus="autofocus" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input><br>
 				Add&nbsp;your&nbsp;URL above,&nbsp;bro.
 			</div>
