@@ -130,12 +130,12 @@ var ViewModel = (function(){
 	function onSplitterMoveTimeoutComplete(event){
 		var changeInX = event.clientX - this.splitterPreviousX;
 		if(bigIsLeft){
-			this.smallSize(this.smallSize() - changeInX);
-			this.bigSize(this.bigSize() + changeInX);
+			this.smallSize(Math.round(this.smallSize() - changeInX));
+			this.bigSize(Math.round(this.bigSize() + changeInX));
 		}
 		else{
-			this.smallSize(this.smallSize() + changeInX);
-			this.bigSize(this.bigSize() - changeInX);
+			this.smallSize(Math.round(this.smallSize() + changeInX));
+			this.bigSize(Math.round(this.bigSize() - changeInX));
 		}
 		this.splitterPreviousX = event.clientX;
 		event.preventDefault();
