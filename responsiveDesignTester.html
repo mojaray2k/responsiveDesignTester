@@ -10,7 +10,7 @@
 			<h1>Responsive Tester:</h1>
 			<div class="input-wrapper">
 				<input class="url-input" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input>
-				<a href="" class="clear-search ico-close"></a>
+				<a href="" class="clear-search ico-close" data-bind="visible: textInUrlBox() !== '', click: clearText"></a>
 			</div>
 			<div class="button-row" data-bind="visible: siteUrl() !== ''">
 				<!-- <h2>Choose from one of the common sizes<h2> -->

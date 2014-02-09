@@ -140,6 +140,10 @@ var ViewModel = (function(){
 		this.splitterPreviousX = event.clientX;
 		event.preventDefault();
 	}
+	
+	ViewModel.prototype.clearText = function(viewmodel){
+		viewmodel.textInUrlBox("");
+	}
 
 	return ViewModel;
 }())
