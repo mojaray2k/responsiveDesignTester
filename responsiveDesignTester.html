@@ -12,6 +12,7 @@
 				<input class="url-input" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input>
 				<a href="" class="clear-search ico-close" data-bind="visible: textInUrlBox() !== '', click: clearText"></a>
 			</div>
+			<button class="about-button  button" data-bind="click:toggleLightbox">About</button>
 			<div class="button-row" data-bind="visible: siteUrl() !== ''">
 				<!-- <h2>Choose from one of the common sizes<h2> -->
 				<!-- ko foreach: currentSizes-->
@@ -41,6 +42,68 @@
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
+		</div>
+		
+		<div class="lightbox" data-bind="visible: lightboxIsVisible">
+			<div class="background" data-bind="click: hideLightbox"></div>
+			<div class="content">
+				<div class="header">
+					About Responsive Design Tester
+				</div>
+				<div class="body">
+					<div class="intro">
+						Responsive Design can be tough!  That's why we made a tool to help you see how your website looks at smaller sizes.
+					</div>
+					<div class="authors">
+						<div class="author-intro">
+							Responsive Design Tester was written by these two guys ---
+						</div>
+						<div>
+							<div class="author">
+								<div class="image">
+									<img src="http://www.gravatar.com/avatar/31ffd81bea61a49eff3aa79c66a6871f?s=128"></img>
+								</div>
+								
+								<div class="text">
+									<div class="description">
+										<b>Shaun Fox</b> is a top-notch designer!  He mostly does web stuff these days but you can check out his print stuff on his website, too!
+									</div>
+									
+									<div class="links">
+										<a href="http://shaunfox.com/">http://shaunfox.com/</a>
+										<a href="https://github.com/shaunrfox">Github Profile</a>
+									</div>	
+								</div>			
+							
+							</div>
+							<div class="author">
+								<div class="image">
+									<img src="http://www.gravatar.com/avatar/b495eb89755add4ed0560c5fdff54fa3?s=128"></img>
+								</div>
+								<div class="text">
+									<div class="description">
+										<b>Broderick Young</b> is a web developer.  He used to do other stuff to, but it's mostly web.  This is his first site actually on the web!
+									</div>
+									
+									<div class="links">
+										<span>Website coming soon!</span>
+										<a href="https://github.com/bxyoung89">Github Profile</a>
+									</div>
+								</div>
+								
+
+							</div>
+						</div>
+					</div>
+					<div class="github-invitation">
+						<span>
+							Want to contribute/fork/see genius in action?  Check out the 
+						</span>
+						<a href="https://github.com/bxyoung89/responsiveDesignTester">Github!</a>
+					</div>
+					
+				</div>
+			</div>
 		</div>
 
 		<script src="knockout-3.0.0.js"></script>

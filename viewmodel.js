@@ -34,6 +34,8 @@ var ViewModel = (function(){
 		this.splitterIsDragging = ko.observable(false);
 		this.splitterPreviousX = undefined;
 		this.splitterMoveTimeout = undefined;
+		
+		this.lightboxIsVisible = ko.observable(false);
 
 		updateSizes.bind(this)();
 		updateCurrentSizes.bind(this)();
@@ -120,12 +122,12 @@ var ViewModel = (function(){
 	ViewModel.prototype.splitterMouseUp = function(viewModel, event){
 		viewModel.splitterIsDragging(false);
 		event.preventDefault();
-	}
+	};
 
 	ViewModel.prototype.splitterMouseLeave = function(viewModel, event){
 		viewModel.splitterIsDragging(false);
 		event.preventDefault();
-	}
+	};
 
 	function onSplitterMoveTimeoutComplete(event){
 		var changeInX = event.clientX - this.splitterPreviousX;
@@ -143,7 +145,19 @@ var ViewModel = (function(){
 	
 	ViewModel.prototype.clearText = function(viewmodel){
 		viewmodel.textInUrlBox("");
-	}
+	};
+	
+	ViewModel.prototype.hideLightbox = function(viewmodel){
+		viewmodel.lightboxIsVisible(false);
+	};
+	
+	ViewModel.prototype.showLightbox = function(viewmodel){
+		viewmodel.lightboxIsVisible(true);
+	};
+	
+	ViewModel.prototype.toggleLightbox = function(viewmodel){
+		viewmodel.lightboxIsVisible(!viewmodel.lightboxIsVisible());
+	};
 
 	return ViewModel;
 }())
