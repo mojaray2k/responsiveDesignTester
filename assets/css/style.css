@@ -339,7 +339,7 @@ table {
   border-spacing: 0; }
 
 /* Extends */
-.button, * {
+.button, *, .lightbox .content .header, .lightbox .content .github-invitation {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -362,19 +362,17 @@ body {
   src: url("../fonts/SourceSansPro-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Regular-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Regular-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Regular-webfont.svg#SourceSansProRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 @font-face {
   font-family: 'SourceSansProSemibold';
   src: url("../fonts/SourceSansPro-Semibold-webfont.eot");
   src: url("../fonts/SourceSansPro-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Semibold-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Semibold-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Semibold-webfont.svg#SourceSansProSemibold") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 html {
   font-family: 'SourceSansProRegular', Verdana, Helvetica, Arial, sans-serif;
   font-weight: 400; }
 
-.button, header h1, .splash-screen, .lightbox .content .header {
+.button, header h1, .splash-screen, .lightbox .content .header, .lightbox .content .authors .author .text .description b {
   font-family: 'SourceSansProSemibold', Verdana, Helvetica, Arial, sans-serif;
   font-weight: 600; }
 
@@ -425,7 +423,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -webkit-transform: rotate(360deg); } }
-
 @-moz-keyframes spin {
   from {
     -moz-transform: rotate(0deg); }
@@ -435,7 +432,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -moz-transform: rotate(360deg); } }
-
 @-ms-keyframes spin {
   from {
     -ms-transform: rotate(0deg); }
@@ -445,7 +441,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -ms-transform: rotate(360deg); } }
-
 @-o-keyframes spin {
   from {
     -o-transform: rotate(0deg); }
@@ -455,7 +450,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -o-transform: rotate(360deg); } }
-
 @keyframes spin {
   from {
     transform: rotate(0deg); }
@@ -465,14 +459,12 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     transform: rotate(360deg); } }
-
 @font-face {
   font-family: 'ringtail-icons-2.0';
   src: url("../icons/ringtail-icons-2.0.eot");
   src: url("../icons/ringtail-icons-2.0.eot?#iefix") format("embedded-opentype"), url("../icons/ringtail-icons-2.0.woff") format("woff"), url("../icons/ringtail-icons-2.0.ttf") format("truetype"), url("../icons/ringtail-icons-2.0.svg#ringtail-icons-2.0") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
   font-family: 'ringtail-icons-2.0';
@@ -1284,9 +1276,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
     background: #909090;
     border-top: 1px solid #333333;
     border-bottom: 1px solid #aaaaaa;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+    box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    -webkit-box-shadow: 0 0 0 transparent; }
   .button:focus {
     outline: 0; }
   .button:disabled, .button[disabled=disabled] {
@@ -1296,9 +1288,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: #aaaaaa;
       border-top: 1px solid #c3c3c3;
       border-bottom: 1px solid #848484;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
   .button.dark-button {
     background: #4a4a4c;
     color: #aaaaaa;
@@ -1315,9 +1307,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: #1d1d1d;
       border-top: 1px solid #0b0b0b;
       border-bottom: 1px solid #575759;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
     .button.dark-button:disabled, .button.dark-button[disabled=disabled] {
       opacity: 0.4; }
       .button.dark-button:disabled:hover, .button.dark-button:disabled:active, .button.dark-button[disabled=disabled]:hover, .button.dark-button[disabled=disabled]:active {
@@ -1325,9 +1317,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
         background: #4a4a4c;
         border-top: 1px solid #636366;
         border-bottom: 1px solid #242425;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+        box-shadow: 0 0 0 transparent;
+        -moz-box-shadow: 0 0 0 transparent;
+        -webkit-box-shadow: 0 0 0 transparent; }
   .button.light-button {
     background: #fbfbfb;
     color: #111111;
@@ -1344,16 +1336,16 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: silver;
       border-top: 1px solid #aeaeae;
       border-bottom: 1px solid #fbfbfb;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
     .button.light-button.selected-button {
       background: #00a3cc;
       border-top: 1px solid #003d4d;
       border-bottom: 1px solid #00b8e6;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent;
       color: #fff; }
     .button.light-button:disabled, .button.light-button[disabled=disabled] {
       opacity: 0.4; }
@@ -1362,9 +1354,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
         background: #fbfbfb;
         border-top: 1px solid #fff;
         border-bottom: 1px solid #aeaeae;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+        box-shadow: 0 0 0 transparent;
+        -moz-box-shadow: 0 0 0 transparent;
+        -webkit-box-shadow: 0 0 0 transparent; }
 
 html {
   font-size: 62.5%;
@@ -1424,7 +1416,7 @@ header {
     font-size: 16px;
     font-size: 1.6rem;
     letter-spacing: 1px; }
-    @media (max-width: 1200px) {
+    @media (max-width: 1250px) {
       header h1 {
         display: none; } }
   header input {
@@ -1485,9 +1477,19 @@ header {
   margin-left: 10px; }
 
 .about-button {
-  position: absolute;
-  left: 50%;
-  margin-left: -32px; }
+  position: relative;
+  float: left;
+  margin-right: 10px;
+  margin-left: 0;
+  width: 30px; }
+  .about-button i {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    height: 30px;
+    color: #fff; }
 
 #content {
   position: absolute;
@@ -1596,7 +1598,7 @@ header {
   width: 100%;
   z-index: 1001; }
   .lightbox .background {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.8);
     height: 100%;
     width: 100%;
     position: absolute;
@@ -1605,22 +1607,29 @@ header {
     z-index: 1002; }
   .lightbox .content {
     z-index: 1003;
-    height: 410px;
+    height: auto;
     width: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-left: -250px;
-    margin-top: -205px;
+    margin-top: -250px;
     background: #eeeeee;
-    border-radius: 10px; }
+    padding: 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    overflow: hidden; }
     .lightbox .content .header {
-      padding: 5px 0 0 10px;
-      background: #a2a2a2;
+      padding: 0 20px;
+      margin: -10px -10px 20px -10px;
+      height: 50px;
+      background: #007a99;
       color: white;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      line-height: 32px;
+      line-height: 52px;
       text-transform: uppercase;
       font-size: 16px;
       font-size: 1.6rem;
@@ -1641,14 +1650,17 @@ header {
         width: 75%;
         float: left; }
         .lightbox .content .authors .author .text .description {
-          width: 100%;
           margin: 10px; }
         .lightbox .content .authors .author .text .links {
           margin: 10px; }
           .lightbox .content .authors .author .text .links a, .lightbox .content .authors .author .text .links span {
             width: 100%; }
     .lightbox .content .github-invitation {
-      margin: 10px; }
+      margin: 20px -10px -10px -10px;
+      padding: 0 20px;
+      background: #d4d4d4;
+      height: 50px;
+      line-height: 52px; }
 
 /* EXTRAS */
 .rule {
@@ -1657,3 +1669,5 @@ header {
   background: #aaaaaa;
   margin: 10px 0 30px;
   padding: 0; }
+
+/*# sourceMappingURL=style.css.map */

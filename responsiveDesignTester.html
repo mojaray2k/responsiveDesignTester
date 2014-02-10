@@ -7,19 +7,21 @@
 	</head>
 	<body>
 		<header id="banner">
+			<button class="about-button button dark-button" data-bind="click:toggleLightbox"><i class="ico-info" aria-hidden="true"></i></button>
+
 			<h1>Responsive Tester:</h1>
 			<div class="input-wrapper">
 				<input class="url-input" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input>
 				<a href="" class="clear-search ico-close" data-bind="visible: textInUrlBox() !== '', click: clearText"></a>
 			</div>
-			<button class="about-button  button" data-bind="click:toggleLightbox">About</button>
+
 			<div class="button-row" data-bind="visible: siteUrl() !== ''">
-				<!-- <h2>Choose from one of the common sizes<h2> -->
-				<!-- ko foreach: currentSizes-->
-					<button class="button light-button" data-bind="text: $data+'px', css: { 'selected-button': $parent.smallSize() === $data}, click: $parent.sizeButtonClicked.bind($parent)"></button>
-				<!-- /ko-->
-			</header>
-		</div>
+			<!-- ko foreach: currentSizes-->
+				<button class="button light-button" data-bind="text: $data+'px', css: { 'selected-button': $parent.smallSize() === $data}, click: $parent.sizeButtonClicked.bind($parent)"></button>
+			<!-- /ko-->
+			</div>
+		</header>
+		<!-- </div> -->
 
 		<div id="content">
 			<div class="splash-screen" data-bind="visible: siteUrl() === ''">
@@ -43,7 +45,7 @@
 			</div>
 
 		</div>
-		
+
 		<div class="lightbox" data-bind="visible: lightboxIsVisible">
 			<div class="background" data-bind="click: hideLightbox"></div>
 			<div class="content">
@@ -56,25 +58,25 @@
 					</div>
 					<div class="authors">
 						<div class="author-intro">
-							Responsive Design Tester was written by these two guys ---
+							Responsive Design Tester was written by these two guys &mdash;
 						</div>
 						<div>
 							<div class="author">
 								<div class="image">
 									<img src="http://www.gravatar.com/avatar/31ffd81bea61a49eff3aa79c66a6871f?s=128"></img>
 								</div>
-								
+
 								<div class="text">
 									<div class="description">
 										<b>Shaun Fox</b> is a top-notch designer!  He mostly does web stuff these days but you can check out his print stuff on his website, too!
 									</div>
-									
+
 									<div class="links">
 										<a href="http://shaunfox.com/">http://shaunfox.com/</a>
 										<a href="https://github.com/shaunrfox">Github Profile</a>
-									</div>	
-								</div>			
-							
+									</div>
+								</div>
+
 							</div>
 							<div class="author">
 								<div class="image">
@@ -82,26 +84,26 @@
 								</div>
 								<div class="text">
 									<div class="description">
-										<b>Broderick Young</b> is a web developer.  He used to do other stuff to, but it's mostly web.  This is his first site actually on the web!
+										<b>Broderick Young</b> is a web developer.  He used to do other stuff too, but it's mostly web.  This is his first site actually on the web!
 									</div>
-									
+
 									<div class="links">
 										<span>Website coming soon!</span>
 										<a href="https://github.com/bxyoung89">Github Profile</a>
 									</div>
 								</div>
-								
+
 
 							</div>
 						</div>
 					</div>
 					<div class="github-invitation">
 						<span>
-							Want to contribute/fork/see genius in action?  Check out the 
+							Want to contribute/fork/see genius in action?  Check out the
 						</span>
 						<a href="https://github.com/bxyoung89/responsiveDesignTester">Github!</a>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
