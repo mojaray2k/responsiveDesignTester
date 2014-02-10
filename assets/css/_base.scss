@@ -69,7 +69,7 @@ header {
 	input {
 		float: left;
 		height: 30px;
-		width: 300px;
+		width: 260px;
 		padding: 0 10px;
 		line-height: 31px;
 		border: 1px solid darken($light-grey, 10%);
@@ -124,6 +124,7 @@ header {
 	right: 10px;
 	height: 30px;
 	width: auto;
+	padding-left: 10px;
 
 	h2,
 	button { float: left; }
@@ -133,7 +134,8 @@ header {
 
 .button { margin-left: 10px; }
 
-.about-button {
+.about-button,
+.github-button {
 	position: relative;
 	float: left;
 	margin-right: 10px;
@@ -189,6 +191,11 @@ header {
 		padding: 0 15px;
 		background: rgba(#fff, 0.9);
 		line-height: 32px;
+
+		&.highlight {
+			background: $dark-cyan;
+			color: #fff;
+		}
 	}
 }
 

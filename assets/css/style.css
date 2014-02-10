@@ -1422,7 +1422,7 @@ header {
   header input {
     float: left;
     height: 30px;
-    width: 300px;
+    width: 260px;
     padding: 0 10px;
     line-height: 31px;
     border: 1px solid #d4d4d4; }
@@ -1466,7 +1466,8 @@ header {
   top: 10px;
   right: 10px;
   height: 30px;
-  width: auto; }
+  width: auto;
+  padding-left: 10px; }
   .button-row h2,
   .button-row button {
     float: left; }
@@ -1476,13 +1477,15 @@ header {
 .button {
   margin-left: 10px; }
 
-.about-button {
+.about-button,
+.github-button {
   position: relative;
   float: left;
   margin-right: 10px;
   margin-left: 0;
   width: 30px; }
-  .about-button i {
+  .about-button i,
+  .github-button i {
     position: absolute;
     top: 0;
     left: 50%;
@@ -1524,6 +1527,9 @@ header {
     padding: 0 15px;
     background: rgba(255, 255, 255, 0.9);
     line-height: 32px; }
+    .iframe-container .size-marker.highlight {
+      background: #00a3cc;
+      color: #fff; }
 
 .splitter {
   width: 5px;
