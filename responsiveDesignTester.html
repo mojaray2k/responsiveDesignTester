@@ -13,7 +13,7 @@
 
 			<h1>Responsive Tester:</h1>
 			<div class="input-wrapper">
-				<input class="url-input" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input>
+				<input class="url-input" data-bind="value: textInUrlBox, event: { keyup: keyPressedInUrlBox} " placeholder="http://..." type="url"></input>
 				<a href="" class="clear-search ico-close" data-bind="visible: textInUrlBox() !== '', click: clearText"></a>
 			</div>
 
@@ -35,14 +35,14 @@
 			<div class="splitter-move-mask" data-bind="visible: siteUrl() !== '' && splitterIsDragging(), event: {mousemove: splitterMouseMove, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}"></div>
 
 			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}, css: { transition: !splitterIsDragging()}" style="width:10px;">
-				<div class="size-marker" data-bind="text:bigSize()+'px', visible: siteUrl() !== ''"></div>
+				<div class="size-marker" data-bind="text:bigSize()+'px', visible: siteUrl() !== '', css: {highlight: splitterIsDragging}"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
 			<div class="splitter" data-bind="visible: siteUrl() !== '', event: { mousedown: splitterMouseDown}, style: { left: bigSize()+'px'}, css: { active: splitterIsDragging, transition: !splitterIsDragging()}"></div>
 
 			<div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}, css: { transition: !splitterIsDragging()}" style="width:10px;">
-				<div class="size-marker" data-bind="text:smallSize()+'px', visible: siteUrl() !== ''"></div>
+				<div class="size-marker" data-bind="text:smallSize()+'px', visible: siteUrl() !== '', css: {highlight: splitterIsDragging}"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 

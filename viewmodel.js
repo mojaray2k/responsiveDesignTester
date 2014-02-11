@@ -1,6 +1,7 @@
 var ViewModel = (function(){
 
-	var commonSizes = [240, 320, 360, 480, 540, 720, 768, 800, 1080];
+	//var commonSizes = [240, 320, 360, 480, 540, 720, 768, 800, 1080];
+	var commonSizes = [1080, 800, 768, 720, 540, 480, 360, 320, 240];
 	var splitterWidth = 5;
 	var bigIsLeft = true;
 	var mouseDebouncingLength = 5;
@@ -157,6 +158,19 @@ var ViewModel = (function(){
 	
 	ViewModel.prototype.toggleLightbox = function(viewmodel){
 		viewmodel.lightboxIsVisible(!viewmodel.lightboxIsVisible());
+	};
+	
+	ViewModel.prototype.keyPressedInUrlBox = function(viewmodel, event){
+		if(event.keyCode === 13 || event.which === 13){
+			refreshUrl.bind(viewmodel)();
+		}
+	
+	};
+	
+	function refreshUrl(){
+		var url = this.siteUrl();
+		this.textInUrlBox("");
+		this.textInUrlBox(url);
 	};
 
 	return ViewModel;
