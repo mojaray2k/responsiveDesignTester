@@ -1425,6 +1425,8 @@ header {
     width: 260px;
     padding: 0 10px;
     line-height: 31px;
+    font-size: 16px;
+    font-size: 1.6rem;
     border: 1px solid #d4d4d4; }
     header input:focus {
       border: 1px solid #00a3cc;
@@ -1526,7 +1528,9 @@ header {
     width: auto;
     padding: 0 15px;
     background: rgba(255, 255, 255, 0.9);
-    line-height: 32px; }
+    line-height: 32px;
+    font-size: 16px;
+    font-size: 1.6rem; }
     .iframe-container .size-marker.highlight {
       background: #00a3cc;
       color: #fff; }
@@ -1602,7 +1606,9 @@ header {
 .lightbox {
   height: 100%;
   width: 100%;
-  z-index: 1001; }
+  z-index: 1001;
+  font-size: 16px;
+  font-size: 1.6rem; }
   .lightbox .background {
     background: rgba(0, 0, 0, 0.8);
     height: 100%;
