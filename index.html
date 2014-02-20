@@ -2,8 +2,7 @@
 <html>
 	<head>
 		<title>Responsive Design Tester</title>
-		<!-- <link rel="stylesheet" type="text/css" href="normalize.css"></link> -->
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css"></link>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -33,7 +32,6 @@
 			<!-- /ko-->
 			</div>
 		</header>
-		<!-- </div> -->
 
 		<div id="content">
 			<div class="splash-screen" data-bind="visible: siteUrl() === ''">
@@ -46,6 +44,10 @@
 
 			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}, css: { transition: !splitterIsDragging()}" style="width:10px;">
 				<div class="size-marker" data-bind="text:bigSize()+'px', visible: siteUrl() !== '', css: {highlight: splitterIsDragging}"></div>
+                <div class="iframe-error">
+                    Sorry!  It looks like your site doesn't like being in an iframe.<br>
+                    You should look at changing the X-Frame-Options
+                </div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
@@ -53,6 +55,10 @@
 
 			<div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}, css: { transition: !splitterIsDragging()}" style="width:10px;">
 				<div class="size-marker" data-bind="text:smallSize()+'px', visible: siteUrl() !== '', css: {highlight: splitterIsDragging}"></div>
+                <div class="iframe-error">
+                    Sorry!  It looks like your site doesn't like being in an iframe.<br>
+                    You should look at changing the X-Frame-Options
+                </div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
