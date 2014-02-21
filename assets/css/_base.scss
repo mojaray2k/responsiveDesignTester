@@ -247,7 +247,11 @@ input[type=text] {
 	  	transform: translateY(-50%);
 	  	z-index: -1;
 	  	opacity: 0;
-	  	// @include transition( 200ms ease 4s opacity);
+
+		&.fade-in{
+			opacity: 1;
+		}
+	  	//@include transition( 200ms ease 4s opacity);
 
 	  	h2 {
 	  		@include font-size(5);

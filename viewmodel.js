@@ -5,6 +5,8 @@ var ViewModel = (function(){
 	var splitterWidth = 5;
 	var bigIsLeft = true;
 	var mouseDebouncingLength = 5;
+	//This is the time it takes for the iframe error to display
+	var iframeErrorWaitDuration = 4000;
 	//THIS IS THE SAME AS THE SCSS IF YOU CHANGE IT THERE, CHANGE IT HERE
 	var slideTransitionDuration = 400;
 
@@ -13,6 +15,9 @@ var ViewModel = (function(){
 
 		this.shouldTransition = ko.observable(false);
 		this.transitionDeactivateTimer = undefined;
+
+		this.showIframeError = ko.observable(false);
+		this.iframeErrorTimer = undefined;
 
 		this.textInUrlBox = ko.observable(getUrlParameter());
 		this.siteUrl = ko.computed(function(){
@@ -25,6 +30,11 @@ var ViewModel = (function(){
 				return "";
 			}
 			this.yoDawging(false);
+			this.showIframeError(false);
+			this.iframeErrorTimer = window.setTimeout(function(){
+				window.clearTimeout(this.iframeErrorTimer);
+				this.showIframeError(true);
+			}.bind(this), iframeErrorWaitDuration)
 			var firstFourLetters = this.textInUrlBox().substr(0,4);
 			if(firstFourLetters === "http"){
 				return this.textInUrlBox();
@@ -109,11 +119,10 @@ var ViewModel = (function(){
 	ViewModel.prototype.sizeButtonClicked = function(size){
 		this.shouldTransition(true);
 		setSizeToSpecificValue.bind(this)(size);
-		var self = this;
 		this.transitionDeactivateTimer = window.setTimeout(function(){
-			window.clearTimeout(self.transitionDeactivateTimer);
-			self.shouldTransition(false);
-		},slideTransitionDuration)
+			window.clearTimeout(this.transitionDeactivateTimer);
+			this.shouldTransition(false);
+		}.bind(this),slideTransitionDuration)
 
 	};
 

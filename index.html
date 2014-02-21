@@ -42,27 +42,27 @@
 			</div>
 			<div class="splitter-move-mask" data-bind="visible: siteUrl() !== '' && splitterIsDragging(), event: {mousemove: splitterMouseMove, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}"></div>
 
-			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}, css: { transition: !splitterIsDragging() && shouldTransition()}" style="width:10px;">
-				<div class="size-marker" data-bind="text:bigSize()+'px', visible: siteUrl() !== '', css: {highlight: splitterIsDragging}"></div>
-                <div class="iframe-error" data-bind="visible: siteUrl() !== ''">
+			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}, css: { transition: !splitterIsDragging() && shouldTransition()}, visible: siteUrl() !== ''" style="width:10px;">
+				<div class="size-marker" data-bind="text:bigSize()+'px', visible: showIframeError, css: {highlight: splitterIsDragging}"></div>
+                <div class="iframe-error" data-bind="visible: showIframeError, css:{ 'fade-in': showIframeError}">
                     <h2>Ah Dang!</h2>
                     <p>It looks like your site doesn&rsquo;t like being in an iframe.</p>
                     <p class="small">Try changing the X-Frame-Options.</p>
                 </div>
-                <div class="loading" data-bind="visible: siteUrl() !== ''"></div>
+                <div class="loading" data-bind="visible: !showIframeError()"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
 			<div class="splitter" data-bind="visible: siteUrl() !== '', event: { mousedown: splitterMouseDown}, style: { left: bigSize()+'px'}, css: { active: splitterIsDragging, transition: !splitterIsDragging()  && shouldTransition()}"></div>
 
-			<div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}, css: { transition: !splitterIsDragging() && shouldTransition()}" style="width:10px;">
-				<div class="size-marker" data-bind="text:smallSize()+'px', visible: siteUrl() !== '', css: {highlight: splitterIsDragging}"></div>
-                <div class="iframe-error" data-bind="visible: siteUrl() !== ''">
+            <div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}, css: { transition: !splitterIsDragging() && shouldTransition()}, visible: siteUrl() !== ''" style="width:10px;">
+				<div class="size-marker" data-bind="text:smallSize()+'px', css: {highlight: splitterIsDragging}"></div>
+                <div class="iframe-error" data-bind="visible: showIframeError, css:{ 'fade-in': showIframeError}">
                     <h2>Ah Dang!</h2>
                     <p>It looks like your site doesn&rsquo;t like being in an iframe.</p>
                     <p class="small">Try changing the X-Frame-Options.</p>
                 </div>
-                <div class="loading" data-bind="visible: siteUrl() !== ''"></div>
+                <div class="loading" data-bind="visible: !showIframeError()"></div>
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 

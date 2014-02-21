@@ -1584,6 +1584,8 @@ input[type=text] {
     transform: translateY(-50%);
     z-index: -1;
     opacity: 0; }
+    .iframe-container .iframe-error.fade-in {
+      opacity: 1; }
     .iframe-container .iframe-error h2 {
       font-size: 50px;
       font-size: 5rem; }
