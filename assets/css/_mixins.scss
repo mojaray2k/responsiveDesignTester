@@ -28,6 +28,14 @@
 
 /* Mixins */
 
+// Transition mixin
+@mixin transition($args) {
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+}
+
 // REM font-size
 @mixin font-size($size){
 	font-size: ($size * 10) + px;

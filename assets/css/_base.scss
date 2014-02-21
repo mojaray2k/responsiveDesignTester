@@ -1,6 +1,4 @@
-* {
-	@extend %box-sizing;
-}
+*, *:before, *:after { @extend %box-sizing; }
 
 html {
 	@extend %source-sans;
@@ -74,6 +72,10 @@ header {
 		line-height: 31px;
 		@include font-size(1.6);
 		border: 1px solid darken($light-grey, 10%);
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		@include border-radius-all(0);
 
 		&:focus {
 			border: 1px solid $dark-cyan;
@@ -154,6 +156,13 @@ header {
 	}
 }
 
+input[type=text] {
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	@include border-radius-all(0);
+}
+
 #content {
 	position: absolute;
 	top: 50px;
@@ -162,10 +171,10 @@ header {
 	left: 0;
 }
 
-.transition {
-	-webkit-transition: all linear 400ms;
-	transition: all linear 400ms;
-}
+// .transition {
+// 	-webkit-transition: all linear 400ms;
+// 	transition: all linear 400ms;
+// }
 
 .iframe-container {
 	position: absolute;
@@ -173,9 +182,15 @@ header {
 	bottom: 0;
 	height: 100%;
 
-	&:first-child { left: 0; }
+	&:first-child {
+		left: 0;
+		width: calc(100% - 320);
+	}
 
-	&:last-child { right: 0; }
+	&:last-child {
+		right: 0;
+		width: 320px;
+	}
 
 	iframe {
 		width: 100%;
@@ -200,13 +215,53 @@ header {
 		}
 	}
 
-	.iframe-error{
-		position: relative;
-		text-align: center;
-		top:50%;
-		@include font-size(2.4);
-		margin: 0, auto;
+	.loading {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 50px;
+		height: 50px;
+		margin-top: -25px;
+		margin-left: -25px;
+	  	z-index: -1;
+		// opacity: 0;
+
+		&:before {
+			font-family: 'ringtail-icons-2.0';
+			@extend .ico-progress6:before;
+			@extend .progress-spinner-large;
+			color: $mid-grey;
+		}
+	}
+
+	.iframe-error {
+		position: absolute;
 		left: 0;
+		right: 0;
+		text-align: center;
+		@include font-size(2.4);
+		padding: 20px;
+		top: 50%;
+	  	-webkit-transform: translateY(-50%);
+	  	-ms-transform: translateY(-50%);
+	  	transform: translateY(-50%);
+	  	z-index: -1;
+	  	opacity: 0;
+	  	// @include transition( 200ms ease 4s opacity);
+
+	  	h2 {
+	  		@include font-size(5);
+	  		@extend %source-sans-semibold;
+	  	}
+
+	  	p { color: $blue; }
+
+	  	p.small {
+	  		@include font-size(1);
+	  		@extend %source-sans-semibold;
+	  		text-transform: uppercase;
+	  		color: $mid-grey;
+	  	}
 	}
 }
 
@@ -228,8 +283,8 @@ header {
 		left: 0;
 		margin-top: -25px;
 		background: darken($mid-grey, 10%);
-		-webkit-transition: all linear 400ms;
-		transition: all linear 400ms;
+		-webkit-transition: background linear 200ms;
+		transition: background linear 200ms;
 	}
 
 	&:hover,
@@ -390,15 +445,4 @@ header {
 		}
 
 	}
-}
-
-
-/* EXTRAS */
-
-.rule {
-	width: 100%;
-	height: 1px;
-	background: $mid-grey;
-	margin: 10px 0 30px;
-	padding: 0;
 }

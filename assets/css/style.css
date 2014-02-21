@@ -339,7 +339,7 @@ table {
   border-spacing: 0; }
 
 /* Extends */
-.button, *, .lightbox .content .header, .lightbox .content .github-invitation {
+.button, *, *:before, *:after, .lightbox .content .header, .lightbox .content .github-invitation {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -362,19 +362,17 @@ body {
   src: url("../fonts/SourceSansPro-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Regular-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Regular-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Regular-webfont.svg#SourceSansProRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 @font-face {
   font-family: 'SourceSansProSemibold';
   src: url("../fonts/SourceSansPro-Semibold-webfont.eot");
   src: url("../fonts/SourceSansPro-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Semibold-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Semibold-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Semibold-webfont.svg#SourceSansProSemibold") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 html {
   font-family: 'SourceSansProRegular', Verdana, Helvetica, Arial, sans-serif;
   font-weight: 400; }
 
-.button, header h1, .splash-screen, .lightbox .content .header, .lightbox .content .authors .author .text .description b {
+.button, header h1, .iframe-container .iframe-error h2, .iframe-container .iframe-error p.small, .splash-screen, .lightbox .content .header, .lightbox .content .authors .author .text .description b {
   font-family: 'SourceSansProSemibold', Verdana, Helvetica, Arial, sans-serif;
   font-weight: 600; }
 
@@ -403,7 +401,7 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
   -o-animation: spin 1.35s linear infinite;
   animation: spin 1.35s linear infinite; }
 
-.progress-spinner-large {
+.progress-spinner-large, .iframe-container .loading:before {
   display: inline-block;
   font-size: 3em;
   -webkit-animation: spin 1.5s linear infinite;
@@ -425,7 +423,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -webkit-transform: rotate(360deg); } }
-
 @-moz-keyframes spin {
   from {
     -moz-transform: rotate(0deg); }
@@ -435,7 +432,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -moz-transform: rotate(360deg); } }
-
 @-ms-keyframes spin {
   from {
     -ms-transform: rotate(0deg); }
@@ -445,7 +441,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -ms-transform: rotate(360deg); } }
-
 @-o-keyframes spin {
   from {
     -o-transform: rotate(0deg); }
@@ -455,7 +450,6 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     -o-transform: rotate(360deg); } }
-
 @keyframes spin {
   from {
     transform: rotate(0deg); }
@@ -465,14 +459,12 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 
   to {
     transform: rotate(360deg); } }
-
 @font-face {
   font-family: 'ringtail-icons-2.0';
   src: url("../icons/ringtail-icons-2.0.eot");
   src: url("../icons/ringtail-icons-2.0.eot?#iefix") format("embedded-opentype"), url("../icons/ringtail-icons-2.0.woff") format("woff"), url("../icons/ringtail-icons-2.0.ttf") format("truetype"), url("../icons/ringtail-icons-2.0.svg#ringtail-icons-2.0") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
   font-family: 'ringtail-icons-2.0';
@@ -662,7 +654,7 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
 .ico-publish:before {
   content: "\e635"; }
 
-.ico-progress6:before {
+.ico-progress6:before, .iframe-container .loading:before {
   content: "\e636"; }
 
 .ico-progress5:before {
@@ -1284,9 +1276,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
     background: #909090;
     border-top: 1px solid #333333;
     border-bottom: 1px solid #aaaaaa;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+    box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    -webkit-box-shadow: 0 0 0 transparent; }
   .button:focus {
     outline: 0; }
   .button:disabled, .button[disabled=disabled] {
@@ -1296,9 +1288,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: #aaaaaa;
       border-top: 1px solid #c3c3c3;
       border-bottom: 1px solid #848484;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
   .button.dark-button {
     background: #4a4a4c;
     color: #aaaaaa;
@@ -1315,9 +1307,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: #1d1d1d;
       border-top: 1px solid #0b0b0b;
       border-bottom: 1px solid #575759;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
     .button.dark-button:disabled, .button.dark-button[disabled=disabled] {
       opacity: 0.4; }
       .button.dark-button:disabled:hover, .button.dark-button:disabled:active, .button.dark-button[disabled=disabled]:hover, .button.dark-button[disabled=disabled]:active {
@@ -1325,9 +1317,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
         background: #4a4a4c;
         border-top: 1px solid #636366;
         border-bottom: 1px solid #242425;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+        box-shadow: 0 0 0 transparent;
+        -moz-box-shadow: 0 0 0 transparent;
+        -webkit-box-shadow: 0 0 0 transparent; }
   .button.light-button {
     background: #fbfbfb;
     color: #111111;
@@ -1344,16 +1336,16 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
       background: silver;
       border-top: 1px solid #aeaeae;
       border-bottom: 1px solid #fbfbfb;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent; }
     .button.light-button.selected-button {
       background: #00a3cc;
       border-top: 1px solid #003d4d;
       border-bottom: 1px solid #00b8e6;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      box-shadow: 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 transparent;
+      -webkit-box-shadow: 0 0 0 transparent;
       color: #fff; }
     .button.light-button:disabled, .button.light-button[disabled=disabled] {
       opacity: 0.4; }
@@ -1362,9 +1354,9 @@ Copyright (c) 2013 Shaun Fox [http://shaunfox.com] under the MIT License (MIT) [
         background: #fbfbfb;
         border-top: 1px solid #fff;
         border-bottom: 1px solid #aeaeae;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+        box-shadow: 0 0 0 transparent;
+        -moz-box-shadow: 0 0 0 transparent;
+        -webkit-box-shadow: 0 0 0 transparent; }
 
 html {
   font-size: 62.5%;
@@ -1435,7 +1427,13 @@ header {
     line-height: 31px;
     font-size: 16px;
     font-size: 1.6rem;
-    border: 1px solid #d4d4d4; }
+    border: 1px solid #d4d4d4;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0; }
     header input:focus {
       border: 1px solid #00a3cc;
       outline: none; }
@@ -1504,6 +1502,14 @@ header {
     height: 30px;
     color: #fff; }
 
+input[type=text] {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0; }
+
 #content {
   position: absolute;
   top: 50px;
@@ -1511,19 +1517,17 @@ header {
   bottom: 0;
   left: 0; }
 
-.transition {
-  -webkit-transition: all linear 400ms;
-  transition: all linear 400ms; }
-
 .iframe-container {
   position: absolute;
   top: 0;
   bottom: 0;
   height: 100%; }
   .iframe-container:first-child {
-    left: 0; }
+    left: 0;
+    width: calc(100% - 320); }
   .iframe-container:last-child {
-    right: 0; }
+    right: 0;
+    width: 320px; }
   .iframe-container iframe {
     width: 100%;
     height: 100%;
@@ -1542,14 +1546,42 @@ header {
     .iframe-container .size-marker.highlight {
       background: #00a3cc;
       color: #fff; }
-  .iframe-container .iframe-error {
-    position: relative;
-    text-align: center;
+  .iframe-container .loading {
+    position: absolute;
     top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+    z-index: -1; }
+    .iframe-container .loading:before {
+      font-family: 'ringtail-icons-2.0';
+      color: #aaaaaa; }
+  .iframe-container .iframe-error {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
     font-size: 24px;
     font-size: 2.4rem;
-    margin: 0, auto;
-    left: 0; }
+    padding: 20px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
+    opacity: 0; }
+    .iframe-container .iframe-error h2 {
+      font-size: 50px;
+      font-size: 5rem; }
+    .iframe-container .iframe-error p {
+      color: #0090cb; }
+    .iframe-container .iframe-error p.small {
+      font-size: 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: #aaaaaa; }
 
 .splitter {
   width: 5px;
@@ -1568,8 +1600,8 @@ header {
     left: 0;
     margin-top: -25px;
     background: #909090;
-    -webkit-transition: all linear 400ms;
-    transition: all linear 400ms; }
+    -webkit-transition: background linear 200ms;
+    transition: background linear 200ms; }
   .splitter:hover, .splitter.active {
     background: #00ccff; }
     .splitter:hover:after, .splitter.active:after {
@@ -1690,10 +1722,4 @@ header {
       height: 50px;
       line-height: 52px; }
 
-/* EXTRAS */
-.rule {
-  width: 100%;
-  height: 1px;
-  background: #aaaaaa;
-  margin: 10px 0 30px;
-  padding: 0; }
+/*# sourceMappingURL=style.css.map */
