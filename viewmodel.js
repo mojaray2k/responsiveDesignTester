@@ -5,9 +5,14 @@ var ViewModel = (function(){
 	var splitterWidth = 5;
 	var bigIsLeft = true;
 	var mouseDebouncingLength = 5;
+	//THIS IS THE SAME AS THE SCSS IF YOU CHANGE IT THERE, CHANGE IT HERE
+	var slideTransitionDuration = 400;
 
 	function ViewModel(){
 		this.yoDawging = ko.observable(false);
+
+		this.shouldTransition = ko.observable(false);
+		this.transitionDeactivateTimer = undefined;
 
 		this.textInUrlBox = ko.observable(getUrlParameter());
 		this.siteUrl = ko.computed(function(){
@@ -102,7 +107,14 @@ var ViewModel = (function(){
 	}
 
 	ViewModel.prototype.sizeButtonClicked = function(size){
+		this.shouldTransition(true);
 		setSizeToSpecificValue.bind(this)(size);
+		var self = this;
+		this.transitionDeactivateTimer = window.setTimeout(function(){
+			window.clearTimeout(self.transitionDeactivateTimer);
+			self.shouldTransition(false);
+		},slideTransitionDuration)
+
 	};
 
 	ViewModel.prototype.splitterMouseDown = function(viewModel, event){
@@ -110,7 +122,7 @@ var ViewModel = (function(){
 		this.splitterPreviousX = event.clientX;
 		//prevents selecting
 		event.preventDefault();
-	}
+	};
 
 	ViewModel.prototype.splitterMouseMove = function(viewModel, event){
 		if(this.splitterMoveTimeout !== undefined){
@@ -171,7 +183,7 @@ var ViewModel = (function(){
 		var url = this.siteUrl();
 		this.textInUrlBox("");
 		this.textInUrlBox(url);
-	};
+	}
 
 	return ViewModel;
 }())
