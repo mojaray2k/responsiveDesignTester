@@ -2,6 +2,7 @@ var ViewModel = (function(){
 
 	//var commonSizes = [240, 320, 360, 480, 540, 720, 768, 800, 1080];
 	var commonSizes = [1080, 800, 768, 720, 540, 480, 360, 320, 240];
+	var minSize = commonSizes[commonSizes.length -1];
 	var splitterWidth = 5;
 	var bigIsLeft = true;
 	var mouseDebouncingLength = 5;
@@ -153,15 +154,24 @@ var ViewModel = (function(){
 
 	function onSplitterMoveTimeoutComplete(event){
 		var changeInX = event.clientX - this.splitterPreviousX;
+		this.splitterPreviousX = event.clientX;
+		var newSmallSize = 0;
+		var newBigSize = 0;
 		if(bigIsLeft){
-			this.smallSize(Math.round(this.smallSize() - changeInX));
-			this.bigSize(Math.round(this.bigSize() + changeInX));
+			newSmallSize = Math.round(this.smallSize() - changeInX);
+			newBigSize = Math.round(this.bigSize() + changeInX);
 		}
 		else{
-			this.smallSize(Math.round(this.smallSize() + changeInX));
-			this.bigSize(Math.round(this.bigSize() - changeInX));
+			newSmallSize = Math.round(this.smallSize() + changeInX);
+			newBigSize = Math.round(this.bigSize() - changeInX);
 		}
-		this.splitterPreviousX = event.clientX;
+		if(newSmallSize < minSize || newBigSize < minSize){
+			event.preventDefault();
+			return;
+		}
+
+		this.smallSize(newSmallSize);
+		this.bigSize(newBigSize);
 		event.preventDefault();
 	}
 	
