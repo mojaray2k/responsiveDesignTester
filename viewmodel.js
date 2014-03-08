@@ -129,7 +129,7 @@ var ViewModel = (function(){
 
 	ViewModel.prototype.splitterMouseDown = function(viewModel, event){
 		viewModel.splitterIsDragging(true);
-		this.splitterPreviousX = event.clientX;
+		this.splitterPreviousX = getClientX(event);
 		//prevents selecting
 		event.preventDefault();
 	};
@@ -152,9 +152,20 @@ var ViewModel = (function(){
 		event.preventDefault();
 	};
 
+	function getClientX(event){
+		if(event.clientX !== undefined){
+			return event.clientX;
+		}
+		var touches = event.changedTouches;
+		if(touches === undefined || touches.length === 0){
+			return 0;
+		}
+		return touches[0].clientX;
+	}
+
 	function onSplitterMoveTimeoutComplete(event){
-		var changeInX = event.clientX - this.splitterPreviousX;
-		this.splitterPreviousX = event.clientX;
+		var changeInX = getClientX(event) - this.splitterPreviousX;
+		this.splitterPreviousX = getClientX(event);
 		var newSmallSize = 0;
 		var newBigSize = 0;
 		if(bigIsLeft){

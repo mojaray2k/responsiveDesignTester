@@ -40,7 +40,7 @@
 			</div>
 		</header>
 
-		<div id="content">
+		<div id="content" data-bind="event: {touchmove: splitterMouseMove, touchend: splitterMouseUp, touchleave: splitterMouseLeave}">
 			<div class="splash-screen" data-bind="visible: siteUrl() === ''">
 				<span data-bind="visible: !yoDawging()">Welcome&nbsp;to&nbsp;the Responsive&nbsp;Tester</span>
 				<span data-bind="visible: yoDawging">Yo&nbsp;Dawg&nbsp;I&nbsp;heard&nbsp;You&nbsp;like&nbsp;responsive&nbsp;design</span>
@@ -60,7 +60,7 @@
 				<iframe data-bind="attr: { src: siteUrl}"></iframe>
 			</div>
 
-			<div class="splitter" data-bind="visible: siteUrl() !== '', event: { mousedown: splitterMouseDown}, style: { left: bigSize()+'px'}, css: { active: splitterIsDragging, transition: !splitterIsDragging()  && shouldTransition()}"></div>
+			<div class="splitter" data-bind="visible: siteUrl() !== '', event: { mousedown: splitterMouseDown, touchstart: splitterMouseDown}, style: { left: bigSize()+'px'}, css: { active: splitterIsDragging, transition: !splitterIsDragging()  && shouldTransition()}"></div>
 
             <div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}, css: { transition: !splitterIsDragging() && shouldTransition()}, visible: siteUrl() !== ''" style="width:10px;">
 				<div class="size-marker" data-bind="text:smallSize()+'px', css: {highlight: splitterIsDragging}"></div>
