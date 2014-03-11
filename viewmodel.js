@@ -25,7 +25,7 @@ var ViewModel = (function(){
 			if(this.textInUrlBox() === ""){
 				return "";
 			}
-			if(this.textInUrlBox().indexOf("responsiveDesignTester.html")!== -1 || this.textInUrlBox().indexOf("http://bxyoung89.github.io/responsiveDesignTester") !== -1){
+			if(this.textInUrlBox().indexOf("responsiveDesignTester.html")!== -1 || this.textInUrlBox().indexOf("http://bxyoung89.github.io/responsiveDesignTester") !== -1 || this.textInUrlBox().indexOf("flexyplexy.com") !== -1){
 				this.yoDawging(true);
 				this.textInUrlBox("");
 				return "";
