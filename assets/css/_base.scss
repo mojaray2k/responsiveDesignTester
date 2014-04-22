@@ -208,47 +208,11 @@ input[type=text] {
 		background: rgba(#fff, 0.9);
 		line-height: 32px;
 		@include font-size(1.6);
-		cursor: hand;
 
 		&.highlight {
 			background: $dark-cyan;
 			color: #fff;
 		}
-
-		&.editing{
-			padding: 0;
-		}
-
-		.edit-marker{
-			display: none;
-			background: $mid-grey;
-			color: #fff;
-			position: absolute;
-			top: 0;
-			left: -32px;
-			width: 32px;
-			height: 30px;
-			&.show{
-				display: inherit;
-			}
-		}
-
-		.edit{
-			width: 78px;
-			input{
-				height: 30px;
-				width: 78px;
-
-			}
-
-		}
-
-		&:hover{
-			.edit-marker{
-				display: inherit;
-			}
-		}
-
 	}
 
 	.loading {
