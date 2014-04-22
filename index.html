@@ -29,7 +29,7 @@
 
 			<h1>Responsive Tester:</h1>
 			<div class="input-wrapper">
-				<input class="url-input" data-bind="value: textInUrlBox, event: { keyup: keyPressedInUrlBox} " placeholder="http://..." type="url"></input>
+				<input class="url-input" data-bind="value: textInUrlBox, event: { keyup: keyPressedInUrlBox} " placeholder="http://..." type="url">
 				<a href="" class="clear-search ico-close" data-bind="visible: textInUrlBox() !== '', click: clearText"></a>
 			</div>
 
@@ -44,13 +44,24 @@
 			<div class="splash-screen" data-bind="visible: siteUrl() === ''">
 				<span data-bind="visible: !yoDawging()">Welcome&nbsp;to&nbsp;the Responsive&nbsp;Tester</span>
 				<span data-bind="visible: yoDawging">Yo&nbsp;Dawg&nbsp;I&nbsp;heard&nbsp;You&nbsp;like&nbsp;responsive&nbsp;design</span>
-				<input class="url-input" autofocus="autofocus" data-bind="value: textInUrlBox" placeholder="http://..." type="url"></input><br>
+				<input class="url-input" autofocus="autofocus" data-bind="value: textInUrlBox" placeholder="http://..." type="url"><br>
 				Add&nbsp;your&nbsp;URL above,&nbsp;bro.
 			</div>
 			<div class="splitter-move-mask" data-bind="visible: siteUrl() !== '' && splitterIsDragging(), event: {mousemove: splitterMouseMove, mouseup: splitterMouseUp, mouseleave: splitterMouseLeave}"></div>
 
 			<div class="iframe-container" data-bind="style: { width: bigSize()+'px'}, css: { transition: !splitterIsDragging() && shouldTransition()}, visible: siteUrl() !== ''" style="width:10px;">
-				<div class="size-marker" data-bind="text:bigSize()+'px', visible: showIframeError, css: {highlight: splitterIsDragging}"></div>
+                <div class="size-marker" data-bind="css: {highlight: splitterIsDragging, editing: bigIsEditing}">
+                    <div class="edit-marker" data-bind="css: { show: bigIsEditing }">
+                        <span class="ico-pencil"></span>
+                    </div>
+                    <div class="view" data-bind="visible: !bigIsEditing(), click: toggleBigIsEditing">
+                        <!-- ko text: bigSize()+'px' -->
+                        <!-- /ko -->
+                    </div>
+                    <div class="edit" data-bind="visible: bigIsEditing">
+                        <input id="big-value-input" data-bind="value: bigEditValue, valueUpdate: 'keyup', event: { keyup: bigEditKeyUp }">
+                    </div>
+                </div>
                 <div class="iframe-error" data-bind="visible: showIframeError, css:{ 'fade-in': showIframeError}">
                     <h2>Ah Dang!</h2>
                     <p>It looks like your site doesn&rsquo;t like being in an iframe.</p>
@@ -63,7 +74,18 @@
 			<div class="splitter" data-bind="visible: siteUrl() !== '', event: { mousedown: splitterMouseDown, touchstart: splitterMouseDown}, style: { left: bigSize()+'px'}, css: { active: splitterIsDragging, transition: !splitterIsDragging()  && shouldTransition()}"></div>
 
             <div class="iframe-container"  data-bind="style: { width: smallSize()+'px'}, css: { transition: !splitterIsDragging() && shouldTransition()}, visible: siteUrl() !== ''" style="width:10px;">
-				<div class="size-marker" data-bind="text:smallSize()+'px', css: {highlight: splitterIsDragging}"></div>
+				<div class="size-marker" data-bind="css: {highlight: splitterIsDragging, editing: smallIsEditing}">
+                    <div class="edit-marker" data-bind="css: { show: smallIsEditing }">
+                        <span class="ico-pencil"></span>
+                    </div>
+                    <div class="view" data-bind="visible: !smallIsEditing(), click: toggleSmallIsEditing">
+                        <!-- ko text: smallSize()+'px' -->
+                        <!-- /ko -->
+                    </div>
+                    <div class="edit" data-bind="visible: smallIsEditing">
+                        <input id="small-value-input" data-bind="value: smallEditValue, valueUpdate: 'keyup', event: { keyup: smallEditKeyUp }">
+                    </div>
+				</div>
                 <div class="iframe-error" data-bind="visible: showIframeError, css:{ 'fade-in': showIframeError}">
                     <h2>Ah Dang!</h2>
                     <p>It looks like your site doesn&rsquo;t like being in an iframe.</p>
@@ -92,7 +114,7 @@
 						<div>
 							<div class="author">
 								<div class="image">
-									<img src="http://www.gravatar.com/avatar/31ffd81bea61a49eff3aa79c66a6871f?s=128"></img>
+									<img src="http://www.gravatar.com/avatar/31ffd81bea61a49eff3aa79c66a6871f?s=128">
 								</div>
 
 								<div class="text">
@@ -109,7 +131,7 @@
 							</div>
 							<div class="author">
 								<div class="image">
-									<img src="http://www.gravatar.com/avatar/b495eb89755add4ed0560c5fdff54fa3?s=128"></img>
+									<img src="http://www.gravatar.com/avatar/b495eb89755add4ed0560c5fdff54fa3?s=128">
 								</div>
 								<div class="text">
 									<div class="description">

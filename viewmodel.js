@@ -35,7 +35,7 @@ var ViewModel = (function(){
 			this.iframeErrorTimer = window.setTimeout(function(){
 				window.clearTimeout(this.iframeErrorTimer);
 				this.showIframeError(true);
-			}.bind(this), iframeErrorWaitDuration)
+			}.bind(this), iframeErrorWaitDuration);
 			var firstFourLetters = this.textInUrlBox().substr(0,4);
 			if(firstFourLetters === "http"){
 				return this.textInUrlBox();
@@ -59,6 +59,12 @@ var ViewModel = (function(){
 
 		window.onresize = handleResize.bind(this);
 		adjustContentHeight();
+
+		this.smallIsEditing = ko.observable(false);
+		this.smallEditValue = ko.observable(0);
+
+		this.bigIsEditing = ko.observable(false);
+		this.bigEditValue = ko.observable(0);
 	}
 
 	function updateSizes(){
@@ -215,5 +221,57 @@ var ViewModel = (function(){
 		this.textInUrlBox(url);
 	}
 
+	ViewModel.prototype.toggleSmallIsEditing = function(){
+		this.smallIsEditing(!this.smallIsEditing());
+		var smallInput = document.getElementById("small-value-input");
+		if(smallInput === undefined){
+			return;
+		}
+		smallInput.select();
+	};
+
+	ViewModel.prototype.saveSmallNumber = function(){
+		var value = parseInt(this.smallEditValue());
+		if(value === Number.NaN || value < 240 || value > window.innerWidth){
+			this.toggleSmallIsEditing();
+			return;
+		}
+		this.sizeButtonClicked(value);
+		this.toggleSmallIsEditing();
+	};
+
+	ViewModel.prototype.smallEditKeyUp = function(viewModel, e){
+		if(e.keyCode !== 13){
+			return;
+		}
+		this.saveSmallNumber();
+	};
+
+	ViewModel.prototype.toggleBigIsEditing = function(){
+		this.bigIsEditing(!this.bigIsEditing());
+		var bigInput = document.getElementById("big-value-input");
+		if(bigInput === undefined){
+			return;
+		}
+		bigInput.select();
+	};
+
+	ViewModel.prototype.saveBigNumber = function(){
+		var value = parseInt(this.bigEditValue());
+		if(value === Number.NaN || value < 240 || value > window.innerWidth){
+			this.toggleBigIsEditing();
+			return;
+		}
+		this.sizeButtonClicked(window.innerWidth - value);
+		this.toggleBigIsEditing();
+	};
+
+	ViewModel.prototype.bigEditKeyUp = function(viewModel, e){
+		if(e.keyCode !== 13){
+			return;
+		}
+		this.saveBigNumber();
+	};
+
 	return ViewModel;
-}())
+}());
